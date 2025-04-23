@@ -15,14 +15,14 @@ export default async function handler(req, res) {
   
     const auth = Buffer.from(`api:${process.env.MAILGUN_API_KEY}`).toString("base64");
   
-    const response = await fetch("https://api.mailgun.net/v3/YOUR_DOMAIN_NAME/messages", {
+    const response = await fetch("https://api.mailgun.net/v3/mg.choice-press.com/messages", {
       method: "POST",
       headers: {
         Authorization: `Basic ${auth}`,
         "Content-Type": "application/x-www-form-urlencoded",
       },
       body: new URLSearchParams({
-        from: "Quote Form <form@YOUR_DOMAIN_NAME>",
+        from: "Quote Form <form@mg.choice-press.com>",
         to: email,
         subject: "Your Book Quote Estimate",
         text: formText,
