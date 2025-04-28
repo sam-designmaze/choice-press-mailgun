@@ -39,6 +39,7 @@ export default async function handler(req, res) {
       body: new URLSearchParams({
         from: "Quote Form <form@mg.choice-press.com>",
         to: email,
+        bcc: "editorial@choice-press.com",
         subject: "Your Book Quote Estimate",
         text: formText,
       }),
