@@ -11,14 +11,21 @@ export default async function handler(req, res) {
       return res.status(405).json({ error: 'Method Not Allowed' });
     }
   
-    const { email, message, estimate } = req.body;
-  
+    const { email, message, estimate, bookType, wordCount, manuscriptStatus, selectedBundle, selectedAddons } = req.body;
+
     const formText = `
-      New Book Quote Request:
-  
-      Email: ${email}
-      Estimate: ${estimate}
-      Message: ${message || '(no message)'}
+    New Book Quote Request:
+
+    Email: ${email}
+    Book Type: ${bookType}
+    Estimated Word Count: ${wordCount}
+    Manuscript Status: ${manuscriptStatus}
+    Selected Plan: ${selectedBundle}
+    Selected Add-ons: ${selectedAddons}
+    Estimate: ${estimate}
+
+    Message:
+    ${message || '(No additional message)'}
     `;
   
     const auth = Buffer.from(`api:${process.env.MAILGUN_API_KEY}`).toString("base64");
