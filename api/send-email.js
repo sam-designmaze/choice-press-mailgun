@@ -11,7 +11,7 @@ export default async function handler(req, res) {
       return res.status(405).json({ error: 'Method Not Allowed' });
     }
   
-    const { email, message, estimate, bookType, wordCount, manuscriptStatus, selectedBundle, selectedAddons } = req.body;
+    const { email, message, estimate, bookType, wordCount, manuscriptStatus, selectedPlan, selectedAddons } = req.body;
 
     const formText = `
     New Book Quote Request:
